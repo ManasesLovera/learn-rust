@@ -3,6 +3,8 @@ use std::io;
 fn main() {
     println!("Guess the number!");
 
+    let secret_number: i32 = rand::random_range(1..=10);
+
     println!("Please input your guess.");
 
     let mut guess = String::new();
@@ -12,5 +14,7 @@ fn main() {
         .expect("Failed to read line");
 
     println!("You guessed: {guess}");
+
+    println!("The correct secret number: {secret_number}");
 }
 

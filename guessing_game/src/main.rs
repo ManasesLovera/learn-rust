@@ -47,7 +47,5 @@ fn main() {
         }
 
     };
-
-    println!("The correct secret number: {secret_number}");
 }
 

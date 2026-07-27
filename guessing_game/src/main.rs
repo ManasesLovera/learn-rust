@@ -2,34 +2,51 @@ use std::io;
 use rand::random_range;
 use std::cmp::Ordering;
 
-fn main() { println!("Guess the number!");
-    let secret_number: i32 = random_range(1..=5);
+fn main() { 
 
-    println!("Please input your guess.");
+    println!("Welcome to guess the number game!\n");
 
-    let mut guess = String::new();
+    // Generate secret random number
+    let secret_number: u32 = random_range(1..=5);
 
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line");
+    println!("Please input your guess:");
 
-    let guess_number: i32 = match guess.trim_end().parse::<i32>() {
 
-        Ok(num) => num,
-        Err(_) => {
-            println!("Error parsing guess number, using 0 as default");
-            0
+    loop {
+        
+        let mut guess = String::new();
+
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
+
+        let guess: u32 = match guess.trim().parse::<u32>() {
+
+            Ok(num) => num,
+            Err(_) => {
+                println!("Error parsing guess number, using 0 as default, you can only use integer positive numbers.");
+                0
+            }
+        };
+
+        
+        println!("You guessed: {guess}");
+
+        if guess == 0 {
+            println!("0 value stops game, if you wanted to continue, only use values from 1 to 5.");
+            break;
         }
+
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too small"),
+            Ordering::Greater => println!("Too big"),
+            Ordering::Equal => {
+                println!("\nYou win! Congrats!\n");
+                break;
+            }
+        }
+
     };
-
-
-    println!("You guessed: {guess}");
-
-    match guess_number.cmp(&secret_number) {
-        Ordering::Less => println!("Too small"),
-        Ordering::Greater => println!("Too big"),
-        Ordering::Equal => println!("You win"),
-    }
 
     println!("The correct secret number: {secret_number}");
 }

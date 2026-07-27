@@ -4,10 +4,10 @@ use std::cmp::Ordering;
 
 fn main() { 
 
-    println!("Welcome to guess the number game!\n");
+    println!("Welcome to guess the number game! Predict a integer positive number from 1 to 10.\n");
 
     // Generate secret random number
-    let secret_number: u32 = random_range(1..=5);
+    let secret_number: u32 = random_range(1..=10);
 
     println!("Please input your guess:");
 
@@ -24,8 +24,8 @@ fn main() {
 
             Ok(num) => num,
             Err(_) => {
-                println!("Error parsing guess number, using 0 as default, you can only use integer positive numbers.");
-                0
+                println!("Error parsing guess number, you can only use integer positive numbers. Try again:");
+                continue;
             }
         };
 

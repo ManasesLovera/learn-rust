@@ -15,5 +15,14 @@ fn first_word(s: &String) -> usize {
 }
 
 fn main() {
-    println!("Hello, world!");
+    let mut s = String::from("hello world");
+
+    let word_count: usize = first_word(&s);
+
+    println!("Value of word: {word_count}");
+
+    let word = &s[0..word_count];
+    println!("The total word is: {word}");
+
+    s.clear();
 }

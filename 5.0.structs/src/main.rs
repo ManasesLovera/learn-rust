@@ -6,7 +6,7 @@ struct User {
 }
 
 fn main() {
-    let user1 = User {
+    let mut user1 = User {
         active: true,
         username: String::from("someusername123"),
         email: String::from("someone@example.com"),
@@ -14,4 +14,8 @@ fn main() {
     };
 
     println!("Is user1 active? '{0}'", user1.active);
+
+    user1.email = String::from("anotheremail@example.com");
+
+    println!("user1.email = {0}", user1.email);
 }

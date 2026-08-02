@@ -12,4 +12,6 @@ fn main() {
         email: String::from("someone@example.com"),
         sign_in_count: 1,
     };
+
+    println!("Is user1 active? '{0}'", user1.active);
 }

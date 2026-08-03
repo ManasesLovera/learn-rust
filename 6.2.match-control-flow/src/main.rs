@@ -26,4 +26,9 @@ fn main() {
     let value_in_cent = value_in_cents(coin);
 
     println!("The value in cents is: {value_in_cent}");
+
+    let five: Option<i32> = Option::Some(5);
+    let _six = plus_one(five);
+
+    println!("Value: {}", five.unwrap_or(0));
 }

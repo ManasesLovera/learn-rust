@@ -1,10 +1,4 @@
-use paths::math;
-
+use paths::eat_at_restaurant;
 fn main() {
-    println!("Hello, world!");
-
-    paths::eat_at_restaurant();
-
-    let result = math::add(2, 3);
-    println!("Result: {}", result);
+    eat_at_restaurant();
 }

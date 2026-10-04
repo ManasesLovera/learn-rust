@@ -3,6 +3,7 @@ name = "error-handling"
 version = "0.1.0"
 edition = "2024"
 
+# By adding 'panic = 'abort'' to the release profile, we ensure that panics are treated as unrecoverable errors.
 [profile.release]
 panic = 'abort'
 

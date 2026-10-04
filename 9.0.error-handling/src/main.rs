@@ -1,9 +1,13 @@
+// Recoverable errors
+// Let’s call a function that returns a Result value because the function could fail.
+mod file_helper;
+use file_helper::create;
+
 fn main() {
-    // panic!("crash and burn");
+    let file_content = create::read_file_or_create("hello.txt");
 
-    // Here, we're attempting to access the 100th element of our vector, but the vector
-    // has only three elements. In this situation, Rust will panic at runtime.
-    let v = vec![1, 2, 3];
-
-    v[99];
+    match file_content {
+        Ok(content) => println!("{}", content),
+        Err(e) => println!("Error: {}", e),
+    }
 }
